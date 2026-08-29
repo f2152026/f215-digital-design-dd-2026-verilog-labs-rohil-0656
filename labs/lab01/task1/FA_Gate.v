@@ -7,6 +7,7 @@
 //           instantiations below into any different sequence, then
 //           re-simulate with the same tb.v and compare.
 
+
 module FA_Gate(
   input  a,
   input  b,
@@ -15,11 +16,9 @@ module FA_Gate(
   output cout
 );
   wire ps, pc1, pc2;
-
   xor (ps,  a,   b);
-  and (pc1, a,   b);
-  xor (sum, cin, ps);
   and (pc2, cin, ps);
   or  (cout, pc1, pc2);
-
+  xor (sum, cin, ps);
+  and (pc1, a,   b);
 endmodule
